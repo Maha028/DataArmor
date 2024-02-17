@@ -1,4 +1,15 @@
 DataArmor is a tool that utilizes the Mondrian algorithm to achieve k-anonymity. Its purpose is to partition records within a dataset, ensuring that each group contains a minimum of k-1 records, based on specified quasi-identifiers. Subsequently, the tool performs necessary verification and anonymization steps to transform these partitions into equivalent classes that satisfy the k-anonymity criterion. By ensuring that each record is indistinguishable among a larger group, the tool effectively reduces the risk of individual identification.
+how to use:
+For code running we used the Python libraries:
+  1.Pandas (pip install pandas)
+  2.Tkinter (install python3-tk)
+  3.CSV (pip install python-csv)
+  
+  Dataset:
+  Module to load the dataset provided by the user (CSV file).
+  Define EID, Numeric QID, Non-Numeric QID, and value of K.
+
+  run DataArmor_GUI.py first
 
 Processing:
 1- Read the dataset.
