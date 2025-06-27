@@ -1,36 +1,76 @@
-DataArmor is a tool that utilizes the Mondrian algorithm to achieve k-anonymity. Its purpose is to partition records within a dataset, ensuring that each group contains a minimum of k-1 records, based on specified quasi-identifiers. Subsequently, the tool performs necessary verification and anonymization steps to transform these partitions into equivalent classes that satisfy the k-anonymity criterion. By ensuring that each record is indistinguishable among a larger group, the tool effectively reduces the risk of individual identification.
+# 🛡️ DataArmor
+
+**DataArmor** is a Python-based data anonymization tool that uses the Mondrian algorithm to achieve **k-anonymity** on structured datasets. Designed with a simple GUI, it allows users to protect sensitive information by anonymizing quasi-identifiers through generalization and intelligent partitioning.
+
+---
+
+## 📌 Features
+
+- ✅ Mondrian algorithm for multi-dimensional k-anonymity
+- ✅ Intuitive GUI using Tkinter
+- ✅ Supports numeric and categorical quasi-identifiers
+- ✅ Easy CSV input and anonymized output
+- ✅ Suitable for research and educational purposes
+
+---
+
+## GUI Overview
+
+- Load your dataset (CSV format)
+- Select:
+  - Explicit Identifier (EID)
+  - Quasi-Identifiers (QIDs): Numeric and Non-numeric
+  - Desired value of **k**
+- Click **"Anonymize"** to apply k-anonymity
+- View and save the anonymized dataset
+
+---
+
+## How It Works
+
+DataArmor uses the Mondrian multi-dimensional partitioning algorithm:
+1. **Partitioning**: Recursively splits the dataset based on QID values.
+2. **Validation**: Ensures each partition has at least *k* records.
+3. **Generalization**: Applies generalization or suppression to satisfy anonymity requirements.
+
+---
+
+## File Structure
+
+| File               | Description                                      |
+|--------------------|--------------------------------------------------|
+| DataArmor_GUI.py   | Main script with Tkinter GUI                     |
+| k_Anonymity.py     | Mondrian algorithm implementation                |
+| data1.csv          | Sample dataset                                   |
+| README.md          | Project documentation                            |
+
+---
+
+## Requirements
+
+- Python 3.x
+- `pandas`
+- `tkinter` (standard with Python)
+- `csv` (built-in)
+
+Install dependencies (if needed):
+
+pip install pandas
+
+## Getting Started
+
+1. Clone the repository:
+
+git clone https://github.com/Maha028/DataArmor.git
+cd DataArmor
+
+2. Run the GUI:
+
+python DataArmor_GUI.py
+
+3. Follow the GUI steps to load your dataset and apply k-anonymity.
 
 
-how to use:
+## Sample Dataset
 
-
-For code running we used the Python libraries:
-
-  1.Pandas (pip install pandas)
-  
-  2.Tkinter (install python3-tk)
-  
-  3.CSV (pip install python-csv)
-  
-  Dataset:
-  
-  Module to load the dataset provided by the user (CSV file).
-  
-  Define EID, Numeric QID, Non-Numeric QID, and value of K.
-
-  run DataArmor_GUI.py first
-
-Processing:
-
-1- Read the dataset.
-
-2- Specify explicit attributes (if provided) and quasi-identifiers.
-
-3-Equivalence Class Formation: Use the Mondrian recursive partitioning algorithm to partition the records into groups (equivalence classes) based on the values of the quasi-identifiers.
-
-4-Ensure that each group contains at least k-1 records.
-
-5-Verification: Verify that each partition exhibits the same combination of quasi-	identifier values to meet the k-anonymity requirement. If not, apply recursive generalization or suppression to the values of the quasi-identifiers.
-
-6-Output: Generate the k-anonymized dataset as the final output.
-
+The repository includes `data1.csv`, a sample dataset for testing. You can replace it with your own structured CSV files.
